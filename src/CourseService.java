@@ -21,20 +21,34 @@ public class CourseService{
     }//publix couseservice
 
     public void enrollStudent(String studentId, String courseId){
-        //TODO implement so it adds the given course form the student
-    }
+    	//Get para obetent el id del estudiante
+    	//Get para obetenr el id del curso
+    	Student stuGet = students.get(studentId);
+    	Course couGet = courses.get(courseId);
+    	stuGet.enroll(couGet);
+    	System.out.println("==========================");
+    }//enrollStudent
 
     public void unEnrollStudent(String studentId, String courseId){
-        //TODO implement so it removes the given course form the student
-    }
+    	Student stuGet = students.get(studentId);
+    	Course couGet = courses.get(courseId);
+    	stuGet.unEnroll(couGet);    
+    	System.out.println("==========================");
+
+    }//unEnrollStudent
 
     public void displayCourseInformation(String courseId){
-        //TODO implement so it shows the course name, id and credits
-    }
+    	Course couGet = courses.get(courseId);
+    	System.out.println(couGet.toString());    
+    	System.out.println("==========================");
+
+    }//displayCourseInformation
 
     public void displayStudentInformation(String studentId){
-        //TODO implement so it shows the student name, id and list of enrolled courses
-    }
+    	Student stuGet = students.get(studentId);
+    	//Obtenemos el toStringde student y concatenamos el total de cursos
+    	System.out.println(stuGet.toString() + "Total courses:" + stuGet.totalEnrolledCourses());   	
+    }//displayStudentInformation
 
 
 }
